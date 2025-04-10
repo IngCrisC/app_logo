@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// En este archivo se crean todos los textos que usaran en el resto de la aplicacion, luego se llaman por medio del nombre de la variable y del archivo.
 class AppStrings {
   static const String nameApp = "Agro inteli Colombia";
   static const String init =

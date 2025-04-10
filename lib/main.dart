@@ -9,6 +9,7 @@ void main() {
   runApp(const MainApp());
 }
 
+// Esta es la entrada visual de la aplicacion
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -18,6 +19,7 @@ class MainApp extends StatelessWidget {
       title: AppStrings.nameApp,
       initialRoute: Routes.splash,
       routes: {
+        // Aca se definen las rutas de la aplicacion
         Routes.splash: (context) => const SplashScreen(),
         Routes.home: (context) => HomeScreen(),
         Routes.login: (context) => const LoginScreen(),

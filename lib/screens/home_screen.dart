@@ -7,14 +7,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.primaryColor, // Color de fondo
       body: Stack(
         children: [
           // Este Center hace que la columna esté en el centro de la pantalla
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center, // <- Importante
+              crossAxisAlignment:
+                  CrossAxisAlignment.center, // Alineacion al centro
               children: [
                 Image.asset(
                   'assets/icons/3.png',
@@ -44,7 +45,8 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 50),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(Routes.login);
+                    Navigator.of(context).pushReplacementNamed(Routes
+                        .login); // Se redirige hacia el login en caso de un click
                   },
                   style: ElevatedButton.styleFrom(
                       backgroundColor: AppColors.secondaryColor,

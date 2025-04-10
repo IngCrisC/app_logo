@@ -5,21 +5,22 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../core/color.dart';
 import '../core/string.dart';
 
+// Pantalla de Login con el uso de un StatelessWidget
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? Key}) : super(key: Key);
+  const LoginScreen({Key? Key}) : super(key: Key); // Constructor
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.primaryColor, // Color de fondo de la pantalla
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(24.0), // Espaciado interno general
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Logo + Nombre de la App
+              // Logo mas el Nombre de la App
               Row(
                 children: [
                   Image.asset(
@@ -91,6 +92,7 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 50),
 
+              // Boton de inicio de sesion
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -115,7 +117,7 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 50),
-
+// Texto recuperar contraseña
               Center(
                 child: Text(
                   AppStrings.restore,
@@ -129,7 +131,7 @@ class LoginScreen extends StatelessWidget {
                 width: double.infinity,
                 child: OutlinedButton.icon(
                   onPressed: () {
-                    // acción con Google
+                    // acción con boton de Google
                   },
                   icon:
                       const FaIcon(FontAwesomeIcons.google, color: Colors.red),

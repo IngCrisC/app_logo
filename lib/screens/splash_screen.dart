@@ -15,6 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
+      // se establece que espere 5 segundos y luego pase a la vista home
       Navigator.of(context).pushReplacementNamed(Routes.home);
     });
   }
@@ -22,11 +23,13 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryColor,
+      backgroundColor: AppColors.primaryColor, // color de fondo
       body: Stack(
         children: [
           Center(
+            // centrar elementos
             child: Column(
+              // elemento hijo tipo columna
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
@@ -38,8 +41,9 @@ class _SplashScreenState extends State<SplashScreen> {
                   height: 40,
                 ),
                 Text(
-                  AppStrings.nameApp,
+                  AppStrings.nameApp, // Nombre de la aplicacion
                   style: TextStyle(
+                    // estilos de texto como, color, tamaño y negrita
                     color: AppColors.secondaryColor,
                     fontSize: 40,
                     fontWeight: FontWeight.bold,
@@ -48,14 +52,15 @@ class _SplashScreenState extends State<SplashScreen> {
               ],
             ),
           ),
-          const Spacer(),
+          const Spacer(), // espacio
           Positioned(
-            bottom: 16,
-            right: 1,
+            // configuracion de mi nombre
+            bottom: 16, // pocicion respecto a la parte inferior de la pantalla
+            right: 1, // pocicion respecto a la parte derecha de la pantalla
             child: const Text(
-              AppStrings.myName,
+              AppStrings.myName, // nombre
               style: TextStyle(
-                fontSize: 19,
+                fontSize: 19, // tamaño de texto
                 color: AppColors.secondaryColor,
               ),
             ),
