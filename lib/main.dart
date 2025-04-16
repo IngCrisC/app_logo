@@ -1,3 +1,4 @@
+import 'package:app_logo/screens/register_screen.dart';
 import 'package:app_logo/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_logo/screens/home_screen.dart';
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget {
         Routes.splash: (context) => const SplashScreen(),
         Routes.home: (context) => HomeScreen(),
         Routes.login: (context) => const LoginScreen(),
+        Routes.register: (context) => const RegisterScreen(),
       },
     );
   }

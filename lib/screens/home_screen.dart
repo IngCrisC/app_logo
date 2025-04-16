@@ -69,7 +69,7 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 50),
                 GestureDetector(
                   onTap: () {
-                    Navigator.pushNamed(context, Routes.login);
+                    Navigator.pushNamed(context, Routes.register);
                   },
                   child: Text(
                     AppStrings.register,

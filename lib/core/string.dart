@@ -14,4 +14,6 @@ class AppStrings {
   static const String anyAcount = "¿no tienes cuenta?";
   static const String register = "Regístrate";
   static const String myName = "Cristian Chavez :)";
+  static const String alreadyAccount = "Ya tienes cuenta";
+  static const String logIn = "Log in";
 }
