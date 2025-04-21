@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:app_logo/core/color.dart';
+import 'package:app_logo/core/string.dart';
 
-class ChangePasswordPage extends StatefulWidget {
+class RecoveryPasswordScreen extends StatefulWidget {
+  const RecoveryPasswordScreen({Key? key}) : super(key: key);
   @override
-  _ChangePasswordPageState createState() => _ChangePasswordPageState();
+  State<RecoveryPasswordScreen> createState() => _RecoveryPasswordScreen();
 }
 
-class _ChangePasswordPageState extends State<ChangePasswordPage> {
+class _RecoveryPasswordScreen extends State<RecoveryPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
-  final _currentPasswordController = TextEditingController();
+  final _emailController = TextEditingController();
   final _newPasswordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
 
@@ -39,18 +42,65 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Cambiar contraseña')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: ListView(
             children: [
-              _buildPasswordField(
-                controller: _currentPasswordController,
-                label: 'Contraseña actual',
-                obscureText: _obscureCurrent,
-                toggle: () => _toggleObscureText('current'),
+              Center(
+                // centrar elementos
+                child: Column(
+                  // elemento hijo tipo columna
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'assets/icons/3.png',
+                      width: 200,
+                      fit: BoxFit.contain,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      AppStrings.restorePassword,
+                      style: TextStyle(
+                        // estilos de texto como, color, tamaño y negrita
+                        color: AppColors.secondaryColor,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 12),
+              TextFormField(
+                controller: _emailController,
+                decoration: const InputDecoration(
+                  labelText: 'Correo electrónico',
+                  labelStyle: TextStyle(
+                    color: AppColors.secondaryColor,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 1,
+                  )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 2,
+                  )),
+                ),
+                keyboardType: TextInputType.emailAddress,
+                validator: (value) {
+                  if (value == null || value.isEmpty)
+                    return 'Ingrese su correo';
+                  final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+                  if (!emailRegex.hasMatch(value)) return 'Correo inválido';
+                  return null;
+                },
               ),
               SizedBox(height: 16),
               _buildPasswordField(

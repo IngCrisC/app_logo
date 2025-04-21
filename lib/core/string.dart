@@ -11,9 +11,12 @@ class AppStrings {
   static const String login = "Ingresar";
   static const String restore = "Recupera tu contraseña";
   static const String google = "Ingresa con Google";
-  static const String anyAcount = "¿no tienes cuenta?";
+  static const String anyAcount = "¿no tienes cuenta? ";
   static const String register = "Regístrate";
   static const String myName = "Cristian Chavez :)";
   static const String alreadyAccount = "Ya tienes cuenta";
   static const String logIn = "Log in";
+  static const String record = "Registro";
+  static const String save = "Guardar";
+  static const String restorePassword = "Recuperar contraseña";
 }

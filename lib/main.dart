@@ -1,5 +1,6 @@
 import 'package:app_logo/screens/register_screen.dart';
 import 'package:app_logo/screens/login_screen.dart';
+import 'package:app_logo/screens/password_recovery_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_logo/screens/home_screen.dart';
 import 'package:app_logo/screens/splash_screen.dart';
@@ -25,6 +26,7 @@ class MainApp extends StatelessWidget {
         Routes.home: (context) => HomeScreen(),
         Routes.login: (context) => const LoginScreen(),
         Routes.register: (context) => const RegisterScreen(),
+        Routes.recoveryPassword: (context) => const RecoveryPasswordScreen(),
       },
     );
   }

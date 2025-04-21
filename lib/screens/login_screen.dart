@@ -55,7 +55,6 @@ class LoginScreen extends StatelessWidget {
                   const SizedBox(width: 10),
                   Expanded(
                     child: TextField(
-                      obscureText: true,
                       decoration: InputDecoration(
                         filled: true,
                         enabledBorder: OutlineInputBorder(
@@ -118,11 +117,22 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 50),
 // Texto recuperar contraseña
-              Center(
-                child: Text(
-                  AppStrings.restore,
-                  style: TextStyle(color: Colors.black, fontSize: 19),
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, Routes.recoveryPassword);
+                    },
+                    child: const Text(
+                      AppStrings.restore,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 19,
+                      ),
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 40),
 
@@ -163,7 +173,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.pushNamed(context, Routes.login);
+                      Navigator.pushNamed(context, Routes.register);
                     },
                     child: const Text(
                       AppStrings.register,

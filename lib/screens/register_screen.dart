@@ -58,19 +58,76 @@ class _RegisterScreenState extends State<RegisterScreen> {
           key: _formKey,
           child: ListView(
             children: [
+              Center(
+                // centrar elementos
+                child: Column(
+                  // elemento hijo tipo columna
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image.asset(
+                      'assets/icons/3.png',
+                      width: 200,
+                      fit: BoxFit.contain,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Text(
+                      AppStrings.register,
+                      style: TextStyle(
+                        // estilos de texto como, color, tamaño y negrita
+                        color: AppColors.secondaryColor,
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Spacer(),
               TextFormField(
                 // Campo para nombre
                 controller: _nameController,
-                decoration: const InputDecoration(labelText: 'Nombre'),
+                decoration: const InputDecoration(
+                  labelText: 'Nombre',
+                  labelStyle: TextStyle(
+                    color: AppColors.secondaryColor,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 1,
+                  )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 2,
+                  )),
+                ),
+
                 validator: (value) =>
                     // Si el campo es valido retorna ingrese su nombre si no entonces retorna null
-                    value!.isEmpty ? 'Ingrese su nombre' : null,
+                    value!.isEmpty ? 'Ingrese su nombre completo' : null,
               ),
               const SizedBox(height: 12),
               TextFormField(
                 controller: _emailController,
-                decoration:
-                    const InputDecoration(labelText: 'Correo electrónico'),
+                decoration: const InputDecoration(
+                  labelText: 'Correo electrónico',
+                  labelStyle: TextStyle(
+                    color: AppColors.secondaryColor,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 1,
+                  )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 2,
+                  )),
+                ),
                 keyboardType: TextInputType.emailAddress,
                 validator: (value) {
                   if (value == null || value.isEmpty)
@@ -85,6 +142,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 controller: _passwordController,
                 decoration: InputDecoration(
                   labelText: 'Contraseña',
+                  labelStyle: TextStyle(
+                    color: AppColors.secondaryColor,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 1,
+                  )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 2,
+                  )),
                   suffixIcon: IconButton(
                     icon: Icon(_isPasswordVisible
                         ? Icons.visibility
@@ -101,8 +171,22 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(height: 12),
               TextFormField(
                 controller: _confirmPasswordController,
-                decoration:
-                    const InputDecoration(labelText: 'Confirmar contraseña'),
+                decoration: const InputDecoration(
+                  labelText: 'Confirmar contraseña',
+                  labelStyle: TextStyle(
+                    color: AppColors.secondaryColor,
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 1,
+                  )),
+                  focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(
+                    color: AppColors.thirdColor,
+                    width: 2,
+                  )),
+                ),
                 obscureText: true,
                 validator: (value) {
                   if (value != _passwordController.text)
@@ -112,15 +196,29 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: 24),
               ElevatedButton(
-                onPressed: _register,
-                child: Text(AppStrings.login),
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed(Routes.login);
+                },
+                child: Text(
+                  AppStrings.save,
+                  style: const TextStyle(
+                    color: AppColors.secondaryColor,
+                    fontSize: 19,
+                  ),
+                ),
               ),
               TextButton(
                 onPressed: () {
                   // Navegar a login
                   Navigator.pop(context);
                 },
-                child: Text('${AppStrings.alreadyAccount} ${AppStrings.logIn}'),
+                child: Text(
+                  '${AppStrings.alreadyAccount} ${AppStrings.logIn}',
+                  style: const TextStyle(
+                    color: AppColors.secondaryColor,
+                    fontSize: 19,
+                  ),
+                ),
               ),
             ],
           ),
